@@ -1,0 +1,31 @@
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+.card-logo {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.app-container {
+  height: 100vh;
+  margin: 0;
+}
+
+.app-sidenav {
+  width: 12rem;
+}
+
+.mat-mdc-list-item:hover {
+  background-color: whitesmoke;
+  transition: 0.3 ease-in;
+}
+
+/*
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+*/
