@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div id="polarAreaChart">
+      <apx-chart
+        [series]="PolarAreaChartOptions.series!"
+        [chart]="PolarAreaChartOptions.chart!"
+        [labels]="PolarAreaChartOptions.labels!"
+        [fill]="PolarAreaChartOptions.fill!"
+        [stroke]="PolarAreaChartOptions.stroke!"
+        [responsive]="PolarAreaChartOptions.responsive!"
+      ></apx-chart>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div id="basicColumnChart">
+      <apx-chart
+        [series]="BasicColumnChartOptions.series!"
+        [chart]="BasicColumnChartOptions.chart!"
+        [dataLabels]="BasicColumnChartOptions.dataLabels!"
+        [plotOptions]="BasicColumnChartOptions.plotOptions!"
+        [yaxis]="BasicColumnChartOptions.yaxis!"
+        [legend]="BasicColumnChartOptions.legend!"
+        [fill]="BasicColumnChartOptions.fill!"
+        [stroke]="BasicColumnChartOptions.stroke!"
+        [tooltip]="BasicColumnChartOptions.tooltip!"
+        [xaxis]="BasicColumnChartOptions.xaxis!"
+      ></apx-chart>
+    </div>
+  </div>
+
+</div>

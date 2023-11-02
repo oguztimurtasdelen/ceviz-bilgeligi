@@ -10,3 +10,7 @@ mat-spinner
 {
   margin: auto;
 }
+
+.toolbar-title {
+  margin: 1rem 0;
+}

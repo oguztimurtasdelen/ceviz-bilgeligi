@@ -3,6 +3,10 @@ export const systemMessages: {[key: string]: string} = {
   "login.success": "Giriş Başarılı",
   "login.failure": "Hata! Hatalı Giriş",
 
+  // System Messages
+  "system.save.success": "Kaydedildi",
+  "system.save.failure": "Hata! Kaydetme Başarısız",
+
   // File Messages
   "file.upload.success": "Dosya Yükleme Başarılı",
   "file.upload.failure": "Hata! Dosya Yükleme Başarısız",

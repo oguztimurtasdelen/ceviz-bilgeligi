@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 import { PersonFunction } from "../../functions/person.function";
 import { FileUploadFunction } from "../../functions/file-upload.function";
@@ -11,10 +11,17 @@ import * as XLSX from 'xlsx';
   templateUrl: './file-upload.component.html',
   styleUrls: ['../../app.component.css', './file-upload.component.css']
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnDestroy {
   isLoading: boolean = false;
+
+  @Input() companyName: string = '';
   @Input() fileName: string = '';
   @Input() fileSize: string = '';
+
+  private personListJSON: any[] = [];
+  private personResultJSON: any[] = [];
+  private person10ResultJSON: any[] = [];
+  private occupationResultJSON: any[] = [];
 
   constructor(
     private _PersonFunction: PersonFunction,
@@ -24,6 +31,9 @@ export class FileUploadComponent {
 
   }
 
+  ngOnInit(): void {
+
+  }
 
   onFilePicked(event: Event) {
     try {
@@ -41,16 +51,10 @@ export class FileUploadComponent {
         const person10ResultWorkSheet: XLSX.WorkSheet = workBook.Sheets["Kişi 10 Değeri"];
         const occupationResultWorkSheet: XLSX.WorkSheet = workBook.Sheets["Kişi Meslek Sonuçları"];
 
-        const personListJSON: any[] = XLSX.utils.sheet_to_json(personList);
-        const personResultJSON: any[] = XLSX.utils.sheet_to_json(personResultWorkSheet);
-        const person10ResultJSON: any[] = XLSX.utils.sheet_to_json(person10ResultWorkSheet);
-        const occupationResultJSON: any[] = XLSX.utils.sheet_to_json(occupationResultWorkSheet);
-
-        this._PersonFunction.setPersonList(personListJSON);
-        this._PersonFunction.setPersonResultList(personResultJSON);
-        this._PersonFunction.setPerson10ResultList(person10ResultJSON);
-        this._PersonFunction.setOccupationResultList(occupationResultJSON);
-        this._PersonFunction.buildPersonsList();
+        this.personListJSON = XLSX.utils.sheet_to_json(personList);
+        this.personResultJSON = XLSX.utils.sheet_to_json(personResultWorkSheet);
+        this.person10ResultJSON = XLSX.utils.sheet_to_json(person10ResultWorkSheet);
+        this.occupationResultJSON = XLSX.utils.sheet_to_json(occupationResultWorkSheet);
 
         this.isLoading = false;
         this._GlobalFunction.showSystemMessage("file.upload.success");
@@ -67,5 +71,20 @@ export class FileUploadComponent {
     }
 
 
+  }
+
+  onSave() {
+    this.isLoading = true;
+    this._PersonFunction.setCompanyName(this.companyName);
+    this._PersonFunction.setPersonList(this.personListJSON);
+    this._PersonFunction.setPersonResultList(this.personResultJSON);
+    this._PersonFunction.setPerson10ResultList(this.person10ResultJSON);
+    this._PersonFunction.setOccupationResultList(this.occupationResultJSON);
+    this._PersonFunction.buildPersonsList();
+    this.isLoading = false;
+    this._GlobalFunction.showSystemMessage("system.save.success");
+  }
+
+  ngOnDestroy(): void {
   }
 }

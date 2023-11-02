@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-person-create',
   templateUrl: './person-create.component.html',
-  styleUrls: ['./person-create.component.css']
+  styleUrls: ['../../app.component.css', './person-create.component.css']
 })
 export class PersonCreateComponent {
 

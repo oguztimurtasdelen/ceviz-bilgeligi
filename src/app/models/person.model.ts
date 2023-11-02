@@ -6,6 +6,7 @@ export interface PersonModel {
   id: number,
   name: string,
   occupation: string,
+  company: string,
   personResult: PersonResultModel,
   person10Result: Person10Model,
   occupationResult: OccupationResultModel

@@ -5,13 +5,15 @@ import { PersonModel } from "../../models/person.model";
 import { PersonFunction } from "../../functions/person.function";
 import { PersonService } from "../../services/person.service";
 
+import { FileUploadFunction } from "../../functions/file-upload.function";
+
 import { GlobalFunction } from "../../functions/global.function";
 
 
 @Component({
   selector: 'app-person-list',
   templateUrl: './person-list.component.html',
-  styleUrls: ['./person-list.component.css']
+  styleUrls: ['../../app.component.css', './person-list.component.css']
 })
 export class PersonListComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
@@ -22,7 +24,8 @@ export class PersonListComponent implements OnInit, OnDestroy {
   constructor(
     private _PersonFunction: PersonFunction,
     private _PersonService: PersonService,
-    private _GlobalFunction: GlobalFunction
+    private _GlobalFunction: GlobalFunction,
+    private _FileUploadFunction: FileUploadFunction,
   ) {
     this.personsListSubscription = this._PersonService.getPersonsListUpdateListener()
       .subscribe({

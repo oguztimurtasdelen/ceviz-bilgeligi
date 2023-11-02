@@ -1,3 +1,8 @@
-.button-fileupload {
+.button {
   width: 100%;
+}
+
+.button-fileupload {
+  margin: 0;
+  padding: 0;
 }

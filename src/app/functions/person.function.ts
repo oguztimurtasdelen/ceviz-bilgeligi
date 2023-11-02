@@ -11,7 +11,7 @@ import { PersonService } from "../services/person.service";
   providedIn: 'root'
 })
 export class PersonFunction {
-
+  private companyName: string = '';
   private personsList: PersonModel[] = [];
   private personList: any[] = [];
   private personResultList: any[] = [];
@@ -32,87 +32,88 @@ export class PersonFunction {
     for (let i = 0; i < this.personList.length; i++) {
       const person = this.personList[i];
       const _person: PersonModel = <PersonModel>{};
-      _person.id = person["id"];
-      _person.name = person["ad soyad"];
-      _person.occupation = person["meslek"];
+      _person.id = person["ID"];
+      _person.name = person["Ad Soyad"];
+      _person.occupation = person["Meslek"];
+      _person.company = this.getCompanyName();
 
 
       // Person Result
-      const personResult = this.personResultList.find(prl => prl["id"] == _person.id && prl["ad soyad"] == _person.name);
+      const personResult = this.personResultList.find(prl => prl["ID"] == _person.id && prl["Ad Soyad"] == _person.name);
       const _personResult: PersonResultModel = <PersonResultModel> {};
-      _personResult.gorselHafiza = personResult["görsel hafıza"];
-      _personResult.gorselIsleyenHafiza = personResult["görsel işleyen hafıza"];
-      _personResult.gozIzleme = personResult["göz izleme"];
-      _personResult.mekansalTahmin = personResult["mekansal tahmin"];
-      _personResult.mantikYurutme = personResult["mantık yürütme"];
-      _personResult.uzamsalMantikYurutme = personResult["uzamsal mantık yürütme"];
-      _personResult.isitselHafiza = personResult["işitsel hafıza"];
-      _personResult.isitselIsleyenHafiza = personResult["işitsel işleyen hafıza"];
-      _personResult.kelimeAyirtEtme = personResult["kelime ayırt etme"];
-      _personResult.sesAyirtEtme = personResult["ses ayırt etme"];
-      _personResult.dilCalismaBellegi = personResult["dil çalışma belleği"];
-      _personResult.kelimeIliskilendirme = personResult["kelime ilişkilendirme"];
-      _personResult.gorselDikkat = personResult["görsel dikkat"];
-      _personResult.gorselDurtuKontrolu = personResult["görsel dürtü kontrolü"];
-      _personResult.isitselDikkat = personResult["işitsel dikkat"];
-      _personResult.isitselDurtuKontolü = personResult["işitsel dürtü kontrolü"];
-      _personResult.ikiliGorselDikkat = personResult["ikili görsel dikkat"];
-      _personResult.ikiliIsitselDikkat = personResult["ikili işitsel dikkat"];
-      _personResult.ikiliGorselDurtuKontrolu = personResult["ikili görsel dürtü kontrolü"];
-      _personResult.ikiliIsitselDurtuKontolu = personResult["ikili işitsel dürtü kontrolü"];
-      _personResult.islemHizi = personResult["işlem hızı"];
-      _personResult.bilisselEsneklik = personResult["bilişsel esneklik"];
-      _personResult.algisalHiz = personResult["algısal hız"];
-      _personResult.gorselIsleyenHafiza = personResult["görsel işleyen hafıza"];
-      _personResult.buyumeZihniyeti = personResult["büyüme zihniyeti"];
-      _personResult.duygusalDuzenleme = personResult["duygusal düzenleme"];
-      _personResult.ozYonetim = personResult["öz yönetim"];
-      _personResult.sosyalYonetim = personResult["sosyal yönetim"];
-      _personResult.duyguTanima = personResult["duygu tanıma"];
-      _personResult.zihinOrtalamasi = personResult["zihin ortalaması"];
+      _personResult.gorselHafiza = personResult["Görsel Hafıza"];
+      _personResult.gorselIsleyenHafiza = personResult["Görsel İşleyen Hafıza"];
+      _personResult.gozIzleme = personResult["Göz İzleme"];
+      _personResult.mekansalTahmin = personResult["Mekansal Tahmin"];
+      _personResult.mantikYurutme = personResult["Mantık Yürütme"];
+      _personResult.uzamsalMantikYurutme = personResult["Uzamsal Mantık Yürütme"];
+      _personResult.isitselHafiza = personResult["İşitsel Hafıza"];
+      _personResult.isitselIsleyenHafiza = personResult["İşitsel İşleyen Hafıza"];
+      _personResult.kelimeAyirtEtme = personResult["Kelime Ayırt Etme"];
+      _personResult.sesAyirtEtme = personResult["Ses Ayırt Etme"];
+      _personResult.dilCalismaBellegi = personResult["Dil Çalışma Belleği"];
+      _personResult.kelimeIliskilendirme = personResult["Kelime İlişkilendirme"];
+      _personResult.gorselDikkat = personResult["Görsel Dikkat"];
+      _personResult.gorselDurtuKontrolu = personResult["Görsel Dürtü Kontrolü"];
+      _personResult.isitselDikkat = personResult["İşitsel Dikkat"];
+      _personResult.isitselDurtuKontolü = personResult["İşitsel Dürtü Kontrolü"];
+      _personResult.ikiliGorselDikkat = personResult["İkili Görsel Dikkat"];
+      _personResult.ikiliIsitselDikkat = personResult["İkili İşitsel Dikkat"];
+      _personResult.ikiliGorselDurtuKontrolu = personResult["İkili Görsel Dürtü Kontrolü"];
+      _personResult.ikiliIsitselDurtuKontolu = personResult["İkili İşitsel Dürtü Kontrolü"];
+      _personResult.islemHizi = personResult["İşlem Hızı"];
+      _personResult.bilisselEsneklik = personResult["Bilişsel Esneklik"];
+      _personResult.algisalHiz = personResult["Algısal Hız"];
+      _personResult.gorselIsleyenHafiza = personResult["Görsel İşleyen Hafıza"];
+      _personResult.buyumeZihniyeti = personResult["Büyüme Zihniyeti"];
+      _personResult.duygusalDuzenleme = personResult["Duygusal Düzenleme"];
+      _personResult.ozYonetim = personResult["Öz Yönetim"];
+      _personResult.sosyalYonetim = personResult["Sosyal Yönetim"];
+      _personResult.duyguTanima = personResult["Duygu Tanıma"];
+      _personResult.zihinOrtalamasi = personResult["Zihin Ortalaması"];
 
       _person.personResult = _personResult;
 
       // Person 10 Result
-      const person10Result = this.person10ResultList.find(p10rl => p10rl["id"] == _person.id && p10rl["ad soyad"] == _person.name);
+      const person10Result = this.person10ResultList.find(p10rl => p10rl["ID"] == _person.id && p10rl["Ad Soyad"] == _person.name);
       const _person10Result: Person10Model = <Person10Model> {};
-      _person10Result.yonetim = person10Result["yönetim"];
-      _person10Result.dikkatVeSurdurebilme = person10Result["dikkat ve sürdürebilme"];
-      _person10Result.etkinIletisim = person10Result["etkin iletişim"];
-      _person10Result.isDisiplini = person10Result["iş disiplini"];
-      _person10Result.adaptasyon = person10Result["adaptasyon"];
-      _person10Result.kariyerGelisimi = person10Result["kariyer gelişimi"];
-      _person10Result.ozYonetim = person10Result["öz yönetim"];
-      _person10Result.problemCozme = person10Result["problem çözme"];
-      _person10Result.yabanciDilKullanma = person10Result["yabancı dil kullanma"];
-      _person10Result.okumaAnlama = person10Result["okuma anlama"];
+      _person10Result.yonetim = person10Result["Yönetim"];
+      _person10Result.dikkatVeSurdurebilme = person10Result["Dikkat Ve Sürdürebilme"];
+      _person10Result.etkinIletisim = person10Result["Etkin İletişim"];
+      _person10Result.isDisiplini = person10Result["İş Disiplini"];
+      _person10Result.adaptasyon = person10Result["Adaptasyon"];
+      _person10Result.kariyerGelisimi = person10Result["Kariyer Gelişimi"];
+      _person10Result.ozYonetim = person10Result["Öz Yönetim"];
+      _person10Result.problemCozme = person10Result["Problem Çözme"];
+      _person10Result.yabanciDilKullanma = person10Result["Yabancı Dil Kullanma"];
+      _person10Result.okumaAnlama = person10Result["Okuma Anlama"];
 
       _person.person10Result = _person10Result;
 
       // Occupation Result
-      const occupationResult = this.occupationResultList.find(orl => orl["id"] == _person.id && orl["ad soyad"] == _person.name);
+      const occupationResult = this.occupationResultList.find(orl => orl["ID"] == _person.id && orl["Ad Soyad"] == _person.name);
       const _occupationResult: OccupationResultModel = <OccupationResultModel>{};
-      _occupationResult.muhasebe = occupationResult["muhasebe"];
-      _occupationResult.finans = occupationResult["finans"];
-      _occupationResult.idariIsler = occupationResult["idari işler"];
-      _occupationResult.arge = occupationResult["arge"];
-      _occupationResult.itBilisim = occupationResult["IT-Bilişim"];
-      _occupationResult.ik = occupationResult["insan kaynakları"];
-      _occupationResult.satinAlma = occupationResult["satın alma"];
-      _occupationResult.pazarlama = occupationResult["pazarlama"];
-      _occupationResult.satis = occupationResult["satış"];
-      _occupationResult.uretimBeyazYaka = occupationResult["üretim-beyaz yaka"];
-      _occupationResult.uretimMaviYaka = occupationResult["üretim-mavi yaka"];
-      _occupationResult.kaliteGuvence = occupationResult["kalite güvence"];
-      _occupationResult.kaliteKontrol = occupationResult["kalite kontrol"];
-      _occupationResult.depo = occupationResult["depo"];
-      _occupationResult.sevkiyatLojistik = occupationResult["sevkiyat-lojistik"];
-      _occupationResult.halklaIliskiler = occupationResult["halkla ilişkiler"];
-      _occupationResult.hukuk = occupationResult["hukuk"];
-      _occupationResult.reklamSosyalMedya = occupationResult["reklam ve sosyal medya"];
-      _occupationResult.uretimPlanlama = occupationResult["üretim planlama"];
-      _occupationResult.bakimOnarim = occupationResult["bakım onarım"];
-      _occupationResult.ustYonetim = occupationResult["üst yönetim"];
+      _occupationResult.muhasebe = occupationResult["Muhasebe"];
+      _occupationResult.finans = occupationResult["Finans"];
+      _occupationResult.idariIsler = occupationResult["İdari İşler"];
+      _occupationResult.arge = occupationResult["ARGE"];
+      _occupationResult.bilisimTeknolojileri = occupationResult["Bilişim Teknolojileri"];
+      _occupationResult.insanKaynaklari = occupationResult["İnsan Kaynakları"];
+      _occupationResult.satinAlma = occupationResult["Satın Alma"];
+      _occupationResult.pazarlama = occupationResult["Pazarlama"];
+      _occupationResult.satis = occupationResult["Satış"];
+      _occupationResult.uretimBeyazYaka = occupationResult["Üretim-Beyaz Yaka"];
+      _occupationResult.uretimMaviYaka = occupationResult["Üretim-Mavi Yaka"];
+      _occupationResult.kaliteGuvence = occupationResult["Kalite Güvence"];
+      _occupationResult.kaliteKontrol = occupationResult["Kalite Kontrol"];
+      _occupationResult.depo = occupationResult["Depo"];
+      _occupationResult.sevkiyatLojistik = occupationResult["Sevkiyat-Lojistik"];
+      _occupationResult.halklaIliskiler = occupationResult["Halkla İlişkiler"];
+      _occupationResult.hukuk = occupationResult["Hukuk"];
+      _occupationResult.reklamSosyalMedya = occupationResult["Reklam Ve Sosyal Medya"];
+      _occupationResult.uretimPlanlama = occupationResult["Üretim Planlama"];
+      _occupationResult.bakimOnarim = occupationResult["Bakım Onarım"];
+      _occupationResult.ustYonetim = occupationResult["Üst Yönetim"];
 
       _person.occupationResult = _occupationResult;
 
@@ -121,6 +122,14 @@ export class PersonFunction {
     }
 
     this._PersonService.setPersonsList(this.personsList);
+  }
+
+  setCompanyName(companyName: string) {
+    this.companyName = companyName;
+  }
+
+  getCompanyName(): string {
+    return this.companyName;
   }
 
   setPersonList(personListJSON: any[]) {
