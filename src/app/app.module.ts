@@ -10,7 +10,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes }   from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -34,11 +34,14 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileListComponent } from './components/file-list/file-list.component';
 import { PersonListComponent } from './components/person-list/person-list.component';
 import { PersonCreateComponent } from './components/person-create/person-create.component';
-import { GraphsComponent } from './components/graphs/graphs.component';
 import { ReportsComponent } from './components/reports/reports.component';
-import { PrintComponent } from './components/print/print.component';
+import { ChartCompanyComponent } from './components/chart-company/chart-company.component';
+import { ChartDepartmentComponent } from './components/chart-department/chart-department.component';
+import { ChartPersonComponent } from './components/chart-person/chart-person.component';
+
 
 
 @NgModule({
@@ -49,11 +52,14 @@ import { PrintComponent } from './components/print/print.component';
     PageNotFoundComponent,
     FooterComponent,
     FileUploadComponent,
+    FileListComponent,
     PersonListComponent,
     PersonCreateComponent,
-    GraphsComponent,
     ReportsComponent,
-    PrintComponent
+    ChartCompanyComponent,
+    ChartDepartmentComponent,
+    ChartPersonComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -69,6 +75,7 @@ import { PrintComponent } from './components/print/print.component';
     MatMenuModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([]),
     MatInputModule,
     MatProgressSpinnerModule,
@@ -85,9 +92,7 @@ import { PrintComponent } from './components/print/print.component';
 
 
 
-
-
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

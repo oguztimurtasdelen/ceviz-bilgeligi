@@ -11,6 +11,10 @@ export const systemMessages: {[key: string]: string} = {
   "file.upload.success": "Dosya Yükleme Başarılı",
   "file.upload.failure": "Hata! Dosya Yükleme Başarısız",
 
+  // Form Messages
+  "form.valid": "Form Geçerli",
+  "form.invalid": "Hata! Form Geçersiz",
+
   // Person Messages
   "person.create.success": "Kişi Oluşturma Başarılı",
   "person.create.failure": "Hata! Kişi Oluşturma Başarısız",

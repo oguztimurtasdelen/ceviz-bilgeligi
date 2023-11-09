@@ -1,3 +1,7 @@
+.toolbar-title {
+  margin: 1rem 0;
+}
+
 input[type="file"] {
   visibility: hidden;
 }
@@ -11,6 +15,14 @@ mat-spinner
   margin: auto;
 }
 
-.toolbar-title {
-  margin: 1rem 0;
+.icon-check-circle {
+  color: green;
+}
+
+.icon-remove-circle {
+  color: red;
+}
+
+.button-print {
+  width: 100%;
 }

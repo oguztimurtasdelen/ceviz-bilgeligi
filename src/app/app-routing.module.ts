@@ -4,21 +4,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from "../app/components/home/home.component";
 import { PageNotFoundComponent } from "../app/components/page-not-found/page-not-found.component";
 import { FileUploadComponent } from "../app/components/file-upload/file-upload.component";
+import { FileListComponent } from "../app/components/file-list/file-list.component";
 import { PersonListComponent } from "../app/components/person-list/person-list.component";
 import { PersonCreateComponent } from "../app/components/person-create/person-create.component";
-import { GraphsComponent } from "../app/components/graphs/graphs.component";
+import { ChartCompanyComponent } from "../app/components/chart-company/chart-company.component";
+import { ChartDepartmentComponent } from "../app/components/chart-department/chart-department.component";
+import { ChartPersonComponent } from "../app/components/chart-person/chart-person.component";
 import { ReportsComponent } from "../app/components/reports/reports.component";
-import { PrintComponent } from "../app/components/print/print.component";
 
 const routes: Routes = [
   {path: 'ana-sayfa', component: HomeComponent},
   {path: '', component: HomeComponent},
   {path: 'dosya-yukleme', component: FileUploadComponent},
+  {path: 'dosya-listesi', component: FileListComponent},
   {path: 'kisi-listesi', component: PersonListComponent},
   {path: 'kisi-olustur', component: PersonCreateComponent},
-  {path: 'grafik', component: GraphsComponent},
+  {path: 'grafikler/sirket', component: ChartCompanyComponent},
+  {path: 'grafikler/departman', component: ChartDepartmentComponent},
+  {path: 'grafikler/kisi', component: ChartPersonComponent},
   {path: 'rapor', component: ReportsComponent},
-  {path: 'yazdir', component: PrintComponent},
 
   {path: '**', pathMatch: 'full', component: PageNotFoundComponent}
 ];

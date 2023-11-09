@@ -2,11 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { PersonModel } from "../../models/person.model";
-import { PersonFunction } from "../../functions/person.function";
+
 import { PersonService } from "../../services/person.service";
 
-import { FileUploadFunction } from "../../functions/file-upload.function";
 
+import { PersonFunction } from "../../functions/person.function";
+import { FileUploadFunction } from "../../functions/file-upload.function";
 import { GlobalFunction } from "../../functions/global.function";
 
 
@@ -17,41 +18,39 @@ import { GlobalFunction } from "../../functions/global.function";
 })
 export class PersonListComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
-  personsList: PersonModel[] = [];
-  private personsListSubscription?: Subscription;
-  tableColumns: string[] = ["id", "namesurname", "occupation", "actions"];
+  personList: PersonModel[] = [];
+  tableColumns: string[] = ["id", "namesurname", "department", "company", "actions"];
 
   constructor(
     private _PersonFunction: PersonFunction,
-    private _PersonService: PersonService,
-    private _GlobalFunction: GlobalFunction,
-    private _FileUploadFunction: FileUploadFunction,
-  ) {
-    this.personsListSubscription = this._PersonService.getPersonsListUpdateListener()
-      .subscribe({
-        next: (data: PersonModel[]) => {
-          this.personsList = data;
-          this.isLoading = false;
-        }
-      });
-  }
+    private _FileUploadFunction: FileUploadFunction
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    this._PersonService.getPersonsList();
+    this.personList = this._PersonFunction.getPersonList();
+    this.isLoading = false;
+  }
+
+  findCompanyName(fileId: string): string {
+    let fileList = this._FileUploadFunction.getFileList();
+    let companyName: string = fileList.find(f => f.id == fileId)!.companyName;
+
+    return companyName;
   }
 
   onEdit(person: PersonModel) {
-    this.isLoading = true;
-    this._PersonFunction.updatePerson(person);
+
   }
 
   onDelete(person: PersonModel) {
     this.isLoading = true;
     this._PersonFunction.deletePerson(person);
+    this.personList = this._PersonFunction.getPersonList();
+    this.isLoading = false;
   }
 
   ngOnDestroy(): void {
-    this.personsListSubscription?.unsubscribe();
+
   }
 }

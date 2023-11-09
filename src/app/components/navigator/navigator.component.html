@@ -9,50 +9,77 @@
   </mat-card>
 </mat-toolbar>
 
+
 <mat-sidenav-container class="app-container">
   <mat-sidenav #sidenav mode="side" opened [class.mat-elevation-z4]="true" class="app-sidenav">
     <mat-nav-list>
-      <mat-list-item routerLink="ana-sayfa">
+      <mat-list-item mat-button routerLink="ana-sayfa">
         <div class="d-flex align-items-center">
           <mat-icon>home</mat-icon>
           <span>Ana Sayfa</span>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="dosya-yukleme">
+      <mat-list-item  mat-button routerLink="dosya-yukleme">
         <div class="d-flex align-items-center">
           <mat-icon>upload</mat-icon>
           <span>Dosya Yükleme</span>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="kisi-listesi">
+      <mat-list-item  mat-button routerLink="dosya-listesi">
+        <div class="d-flex align-items-center">
+          <mat-icon>list</mat-icon>
+          <span>Dosya Listesi</span>
+        </div>
+      </mat-list-item>
+
+      <mat-list-item  mat-button routerLink="kisi-listesi">
         <div class="d-flex align-items-center">
           <mat-icon>person</mat-icon>
           <span>Kişi Listesi</span>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="grafik">
+      <mat-list-item  mat-button [matMenuTriggerFor]="graphicsMenu">
         <div class="d-flex align-items-center">
           <mat-icon>bar_chart</mat-icon>
-          <span>Grafikler</span>
+          <span>Grafik</span>
+          <mat-icon style="margin-left: auto;">keyboard_arrow_down</mat-icon>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="rapor">
+
+      <mat-menu #graphicsMenu="matMenu" xPosition="before">
+        <button mat-menu-item routerLink="grafikler/sirket">
+          <mat-icon>business</mat-icon>
+          <span>Şirket</span>
+        </button>
+        <button mat-menu-item routerLink="grafikler/departman">
+          <mat-icon>supervisor_account</mat-icon>
+          <span>Departman</span>
+        </button>
+        <button mat-menu-item routerLink="grafikler/kisi">
+          <mat-icon>perm_identity</mat-icon>
+          <span>Kişi</span>
+        </button>
+      </mat-menu>
+
+      <mat-list-item  mat-button routerLink="rapor">
         <div class="d-flex align-items-center">
           <mat-icon>file_copy</mat-icon>
           <span>Raporlama</span>
         </div>
       </mat-list-item>
 
-      <mat-list-item routerLink="yazdir">
+      <!--
+      <mat-list-item  mat-button routerLink="yazdir">
         <div class="d-flex align-items-center">
           <mat-icon>print</mat-icon>
           <span>Yazdır</span>
         </div>
       </mat-list-item>
+      -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

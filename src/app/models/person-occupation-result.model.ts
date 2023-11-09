@@ -1,4 +1,4 @@
-export interface OccupationResultModel {
+export interface PersonOccupationResultModel {
   muhasebe: number,
   finans: number,
   idariIsler: number,

@@ -3,6 +3,11 @@
 }
 
 .button-fileupload {
-  margin: 0;
-  padding: 0;
+  background-color: green !important;
+  color: whitesmoke !important;
+}
+
+.mat-mdc-card {
+  box-shadow: none;
+  background-color: transparent;
 }
