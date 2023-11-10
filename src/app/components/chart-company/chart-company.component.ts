@@ -71,7 +71,7 @@ export class ChartCompanyComponent implements OnInit, OnDestroy {
         "Yabancı Dil Kullanma",
         "Okuma Anlama"
       ],
-      colors: ["#F0B67F", "#FE5F55", "#D6D1B1", "#C7EFCF", "#EEF5DB", "#7B4B94", "#7D82B8", "#B7E3CC", "#C4FFB2", "#D6F7A3"],
+      colors: ["#BDBBD7", "#FF6600", "#660099", "#FFFF00", "#98FF98", "#6B8E23", "#003153", "#E75480", "#704214", "#00FFFF"],
       series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       chart: {
         type: "polarArea",
@@ -81,7 +81,7 @@ export class ChartCompanyComponent implements OnInit, OnDestroy {
         colors: ["#fff"]
       },
       fill: {
-        colors: ["#F0B67F", "#FE5F55", "#D6D1B1", "#C7EFCF", "#EEF5DB", "#7B4B94", "#7D82B8", "#B7E3CC", "#C4FFB2", "#D6F7A3"],
+        colors: ["#BDBBD7", "#FF6600", "#660099", "#FFFF00", "#98FF98", "#6B8E23", "#003153", "#E75480", "#704214", "#00FFFF"],
         opacity: 0.8
       },
       responsive: [
@@ -179,6 +179,16 @@ export class ChartCompanyComponent implements OnInit, OnDestroy {
     return companyName;
   }
 
+  printFileUploadDate(fileId: string): string {
+    let fileUploadDate = "";
+    if (fileId) {
+      const _fileUploadDate = this.fileList.find(f => f.id == fileId)!.uploadDate;
+      fileUploadDate = new Date(_fileUploadDate).toLocaleDateString();
+    }
+
+    return fileUploadDate;
+  }
+
   printPage(){
     let popupWin;
     const polarAreaChartCompany = document.getElementById("polarAreaChartCompany")!.innerHTML;
@@ -239,6 +249,11 @@ export class ChartCompanyComponent implements OnInit, OnDestroy {
 
               <div class="table table-borderless">
                 <table>
+                  <tr>
+                    <th>Tarih</th>
+                    <td>${this.printFileUploadDate(this.companySelectionId!)}</td>
+                  </tr>
+
                   <tr>
                     <th>Şirket</th>
                     <td>${this.printCompanyName(this.companySelectionId!)}</td>

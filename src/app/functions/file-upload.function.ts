@@ -131,6 +131,14 @@ export class FileUploadFunction {
     }
   }
 
+  getCompanyName(fileId: string): string {
+    return this.fileList.find(f => f.id == fileId)!.companyName;
+  }
+
+  getFileUploadDate(fileId: string): string {
+    return this.fileList.find(f => f.id == fileId)!.uploadDate;
+  }
+
   deleteFile(file: FileUploadModel) {
     const filteredFileList: FileUploadModel[] = this.fileList.filter(f => f.id !== file.id);
     this.fileList = filteredFileList;

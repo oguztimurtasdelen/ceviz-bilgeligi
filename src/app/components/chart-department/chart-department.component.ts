@@ -90,7 +90,7 @@ export class ChartDepartmentComponent implements OnInit {
         "Yabancı Dil Kullanma",
         "Okuma Anlama"
       ],
-      colors: ["#F0B67F", "#FE5F55", "#D6D1B1", "#C7EFCF", "#EEF5DB", "#7B4B94", "#7D82B8", "#B7E3CC", "#C4FFB2", "#D6F7A3"],
+      colors: ["#BDBBD7", "#FF6600", "#660099", "#FFFF00", "#98FF98", "#6B8E23", "#003153", "#E75480", "#704214", "#00FFFF"],
       series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       chart: {
         type: "polarArea",
@@ -100,7 +100,7 @@ export class ChartDepartmentComponent implements OnInit {
         colors: ["#fff"]
       },
       fill: {
-        colors: ["#F0B67F", "#FE5F55", "#D6D1B1", "#C7EFCF", "#EEF5DB", "#7B4B94", "#7D82B8", "#B7E3CC", "#C4FFB2", "#D6F7A3"],
+        colors: ["#BDBBD7", "#FF6600", "#660099", "#FFFF00", "#98FF98", "#6B8E23", "#003153", "#E75480", "#704214", "#00FFFF"],
         opacity: 0.8
       },
       responsive: [
@@ -142,7 +142,10 @@ export class ChartDepartmentComponent implements OnInit {
         }
       },
       dataLabels: {
-        enabled: false
+        enabled: false,
+        style: {
+          colors: ["#6B8E23", "#FF6600", "#660099"]
+        }
       },
       stroke: {
         show: true,
@@ -165,8 +168,15 @@ export class ChartDepartmentComponent implements OnInit {
       },
 
       fill: {
-        opacity: 1
+        opacity: 1,
+        colors: ["#6B8E23", "#FF6600", "#660099"]
       },
+      legend: {
+        show: true,
+        markers: {
+          fillColors: ["#6B8E23", "#FF6600", "#660099"]
+        }
+      }
 
     };
   }
@@ -254,6 +264,16 @@ export class ChartDepartmentComponent implements OnInit {
       companyName = this.fileList.find(f => f.id == fileId)!.companyName;
     }
     return companyName;
+  }
+
+  printFileUploadDate(fileId: string): string {
+    let fileUploadDate = "";
+    if (fileId) {
+      const _fileUploadDate = this.fileList.find(f => f.id == fileId)!.uploadDate;
+      fileUploadDate = new Date(_fileUploadDate).toLocaleDateString();
+    }
+
+    return fileUploadDate;
   }
 
   getMeanPerson10Result(personList: any[]): number[] {
@@ -361,6 +381,11 @@ export class ChartDepartmentComponent implements OnInit {
 
               <div class="table table-borderless">
                 <table>
+                  <tr>
+                    <th>Tarih</th>
+                    <td>${this.printFileUploadDate(this.companySelectionId!)}</td>
+                  </tr>
+
                   <tr>
                     <th>Şirket</th>
                     <td>${this.printCompanyName(this.companySelectionId!)}</td>
