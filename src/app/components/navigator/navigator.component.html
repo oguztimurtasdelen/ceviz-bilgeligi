@@ -2,11 +2,11 @@
   <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
       <mat-icon>menu</mat-icon>
   </button>
-  <span>CEVİZ BİLGELİĞİ</span>
+  <span>
+    <img mat-card-md-image class="img img-logo" src="assets/images/ceviz_bilgeligi_logo_yatay.png" alt="Ceviz Bilgeliği">
+  </span>
   <span class="toolbar-item-spacer"></span>
-  <mat-card class="card-logo">
-    <img mat-card-md-image src="assets/images/runtiya-logo.png" alt="">
-  </mat-card>
+
 </mat-toolbar>
 
 
@@ -44,7 +44,7 @@
       <mat-list-item  mat-button [matMenuTriggerFor]="graphicsMenu">
         <div class="d-flex align-items-center">
           <mat-icon>bar_chart</mat-icon>
-          <span>Grafik</span>
+          <span>Grafikler</span>
           <mat-icon style="margin-left: auto;">keyboard_arrow_down</mat-icon>
         </div>
       </mat-list-item>
@@ -65,12 +65,14 @@
         </button>
       </mat-menu>
 
+      <!--
       <mat-list-item  mat-button routerLink="rapor">
         <div class="d-flex align-items-center">
           <mat-icon>file_copy</mat-icon>
           <span>Raporlama</span>
         </div>
       </mat-list-item>
+      -->
 
       <!--
       <mat-list-item  mat-button routerLink="yazdir">

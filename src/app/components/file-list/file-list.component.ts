@@ -11,7 +11,7 @@ import { FileUploadModel } from "../../models/file-upload.model";
 export class FileListComponent implements OnInit {
   isLoading: boolean = false;
   fileList: FileUploadModel[] = [];
-  tableColumns: string[] = ["id", "companyName", "uploadDate", "fileSize", "actions"];
+  tableColumns: string[] = ["id", "companyName", "uploadDate", "actions"];
 
   constructor(
     private _FileUploadFunction: FileUploadFunction

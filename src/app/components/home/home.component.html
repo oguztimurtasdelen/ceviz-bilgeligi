@@ -1,4 +1,139 @@
-<p>Dosya Yükleme Kuralları</p>
-<p>Excel ve 8 MB</p>
+<mat-toolbar class="toolbar-title">
+  <span>ANA SAYFA</span>
+</mat-toolbar>
 
-<br>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Dosya Yükleme</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>
+            Şirket Adı ve Tarih bilgisini girdikten sonra "Dosya Seç" butonuna tıklayarak sisteme yüklemek istediğiniz sonuç dosyasını seçiniz.
+            <ul>
+              <li>Sisteme yüklenen dosya <b>kesinlikle</b> tarafınıza sağlanan Excel ile aynı formatta olmalıdır.</li>
+              <li>Sisteme tek seferde sadece bir dosya yükleyebilirsiniz. Daha fazla dosya yüklemek için mevcut yükleme işleminiz tamamlandıktan sonra aynı işlemleri tekrarlamanız gerekmektedir.</li>
+              <li>Sisteme tek seferde yüklenebilecek dosya boyutu <b>8MB</b> olarak sınırlıdır. Daha yüksel boyuttaki dosyalarınız için iki farklı dosya olarak yüklemeniz gerekmektedir.</li>
+            </ul>
+          </li>
+        </mat-card-subtitle>
+
+        <mat-card-subtitle>
+          <li>
+            Dosya Yükleme işlemini tamamlamak için "Kaydet" butonuna basın.
+          </li>
+        </mat-card-subtitle>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Dosya Listesi</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>Sisteme yüklediğiniz dosyaların listelendiği bölümdür.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li>Sisteme yüklenen dosyalara sistem tarafından otomatik olarak "ID" değeri atanmaktadır.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li>Sisteme yüklenen bir dosyayı silebilirsiniz. Sistemden bir dosya silindiğinde, dosyanın içerisindeki kişi bilgileri sistemden kaldırılmaktadır ve <b>grafik hesaplamalarına dahil edilmemektedir.</b></li>
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Kişi Listesi</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>Sisteme yüklediğiniz dosyalarda yer alan kişilerin listelendiği bölümdür.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li>Sisteme yüklenen bir kişiyi silebilirsiniz. Sistemden bir kişi silindiğinde <b>grafik hesaplamalarına dahil edilmemektedir.</b></li>
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Grafikler - Şirket</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>Şirket ortalamasının grafik olarak gösterildiği bölümdür.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li><b>Ekranda seçtiğiniz şirket bilgisi için</b> yüklediğiniz Excel dosyasında yer alan kişilerin değerleri kullanılarak otomatik olarak şirket ortalaması hesaplanmaktadır.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li><b>Ekranda bir şirket bilgisi seçilmezse</b> sisteme yüklenen tüm Excel dosyalarında yer alan kişilerin değerleri kullanılarak otomatik olarak şirket ortalaması hesaplanmaktadır.</li>
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Grafikler - Departman</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>Departman ortalamasının grafik olarak gösterildiği bölümdür.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li><b>Ekranda seçtiğiniz şirket bilgisi için</b> yüklediğiniz Excel dosyasında yer alan kişiler departman bilgisine göre gruplanarak otomatik olarak departman ortalaması hesaplanmaktadır.</li>
+          <ul>
+            <li>Seçilen şirket bilgisine göre Bar Chart grafiğinde şirket ortalaması ve departman ortalaması otomatik olarak hesaplanmaktadır.</li>
+          </ul>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li><b>Ekranda bir şirket bilgisi seçilmezse</b> sisteme yüklenen tüm Excel dosyalarında yer alan kişiler departman bilgisine göre gruplanarak otomatik olarak departman ortalaması hesaplanmaktadır.</li>
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Grafikler - Kişi</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card-subtitle>
+          <li>Kişi ortalamasının grafik olarak gösterildiği bölümdür.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li>Bar Chart grafiğinde <b>ekranda seçilen şirket bilgisi ve seçilen şirkette yer alan kişiler departmanlara göre gruplanarak</b> değerleri otomatik olarak hesaplanmaktadır.</li>
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <li><b>Şirket bilgisi seçilmezse</b> sisteme yüklenen tüm Excel dosyalarında yer alan kişiler ile şirket ve departman ortalamaları otomatik olarak hesaplanmaktadır.</li>
+        </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

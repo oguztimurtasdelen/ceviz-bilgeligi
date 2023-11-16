@@ -205,6 +205,9 @@ export class ChartPersonComponent implements OnInit {
     setTimeout(() => {
       this.PolarAreaChartOptions.series = this.getMeanPerson10Result(this.personResultList);
 
+      console.log(this.PolarAreaChartOptions.series);
+      console.log(this.personResultList);
+
       this.BasicColumnChartOptions.series![0].data = this.getMeanPerson10Result(this.companyFilteredPersonList);
       this.BasicColumnChartOptions.series![1].data = this.getMeanPerson10Result(this.departmentFilteredPersonList);
       this.BasicColumnChartOptions.series![2].data = this.getMeanPerson10Result(this.personResultList);
@@ -237,6 +240,7 @@ export class ChartPersonComponent implements OnInit {
   }
 
   personResultFind() {
+    this.personResultList = [];
     const personResult: PersonModel = this.companyFilteredPersonList.find((cfpl, index) => index == this.personSelectionIndex)!;
     this.personResultList.push(personResult);
   }

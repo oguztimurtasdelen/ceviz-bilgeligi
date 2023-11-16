@@ -21,3 +21,8 @@
   background-color: whitesmoke;
   transition: 0.3 ease-in;
 }
+
+.img-logo {
+  width: 20%;
+  height: auto;
+}

@@ -142,6 +142,8 @@ export class FileUploadFunction {
   deleteFile(file: FileUploadModel) {
     const filteredFileList: FileUploadModel[] = this.fileList.filter(f => f.id !== file.id);
     this.fileList = filteredFileList;
+
+    this._PersonFunction.deletePersonByFileId(file);
   }
 
 }

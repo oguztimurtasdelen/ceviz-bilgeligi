@@ -31,7 +31,7 @@
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <div class="row" *ngIf="!isLoading">
     <div class="col-lg-6 col-md-12 col-sm-12">
-      <div id="polarAreaChartDepartment" class="chart chart-polararea chart-company" *ngIf="PolarAreaChartOptions.series!.length > 0">
+      <div id="polarAreaChartDepartment" class="chart chart-polararea chart-department" *ngIf="PolarAreaChartOptions.series!.length > 0">
         <apx-chart
           [series]="PolarAreaChartOptions.series!"
           [chart]="PolarAreaChartOptions.chart!"
@@ -45,7 +45,7 @@
     </div>
 
     <div class="col-lg-6 col-md-12 col-sm-12">
-      <div id="basicColumnChartDepartment" class="chart chart-basiccolumn chart-company" *ngIf="BasicColumnChartOptions.series!.length > 0">
+      <div id="basicColumnChartDepartment" class="chart chart-basiccolumn chart-department" *ngIf="BasicColumnChartOptions.series!.length > 0">
         <apx-chart
           [series]="BasicColumnChartOptions.series!"
           [chart]="BasicColumnChartOptions.chart!"
